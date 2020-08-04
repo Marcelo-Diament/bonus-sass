@@ -1,0 +1,37 @@
+@import 'style/variables';
+@import 'style/buttons';
+@import 'style/flex';
+@import 'style/lists';
+@import 'style/header';
+
+body {
+  background-color: $light;
+
+  button {
+    @include btn;
+  }
+
+  ul {
+    &.highlight {
+      @include highlighted-list($darker, $lighter);
+    }
+  }
+
+  main {
+    flex: 1 1 70%;
+
+    .serv {
+      @include flex('row', 'wrap', 'around');
+    }
+  }
+
+  aside {
+    flex: 1 1 30%;
+  }
+
+  @each $named-colors, $color in $named-colors {
+    .#{$named-colors} {
+      background-color: #{$color};
+    }
+  }
+}
